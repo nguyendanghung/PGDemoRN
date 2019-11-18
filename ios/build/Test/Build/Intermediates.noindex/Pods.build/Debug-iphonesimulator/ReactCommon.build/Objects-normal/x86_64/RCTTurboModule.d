@@ -1,0 +1,43 @@
+dependencies: \
+  /Project/HungDemoApp/Test/node_modules/react-native/ReactCommon/turbomodule/core/platform/ios/RCTTurboModule.mm \
+  /Project/HungDemoApp/Test/ios/Pods/Target\ Support\ Files/ReactCommon/ReactCommon-prefix.pch \
+  /Project/HungDemoApp/Test/node_modules/react-native/ReactCommon/turbomodule/core/platform/ios/RCTTurboModule.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTBridgeDelegate.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTJavaScriptLoader.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTModuleMethod.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTBridgeMethod.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTNullability.h \
+  /Project/HungDemoApp/Test/node_modules/react-native/ReactCommon/jscallinvoker/ReactCommon/JSCallInvoker.h \
+  /Project/HungDemoApp/Test/node_modules/react-native/ReactCommon/turbomodule/core/TurboModule.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-jsi/jsi/jsi.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-jsi/jsi/jsi-inl.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-cxxreact/cxxreact/MessageQueueThread.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTConvert.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTAnimationType.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTBorderStyle.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTLog.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTAssert.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTUtils.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTPointerEvents.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTTextDecorationLineType.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/Yoga/yoga/Yoga.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/Yoga/yoga/YGEnums.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/Yoga/yoga/YGMacros.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/Yoga/yoga/YGValue.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTCxxConvert.h \
+  /Project/HungDemoApp/Test/ios/Pods/Headers/Public/React-Core/React/RCTManagedPointer.h \
+  /Project/HungDemoApp/Test/node_modules/react-native/ReactCommon/turbomodule/core/LongLivedObject.h \
+  /Project/HungDemoApp/Test/node_modules/react-native/ReactCommon/turbomodule/core/TurboModuleUtils.h \
+  /Project/HungDemoApp/Test/ios/Pods/Folly/folly/Optional.h \
+  /Project/HungDemoApp/Test/ios/Pods/Folly/folly/Portability.h \
+  /Project/HungDemoApp/Test/ios/Pods/Folly/folly/portability/Config.h \
+  /Project/HungDemoApp/Test/ios/Pods/Folly/folly/CPortability.h \
+  /Project/HungDemoApp/Test/ios/Pods/Folly/folly/Traits.h \
+  /Project/HungDemoApp/Test/ios/Pods/Folly/folly/Utility.h \
+  /Project/HungDemoApp/Test/ios/Pods/Folly/folly/lang/Exception.h \
+  /Project/HungDemoApp/Test/ios/Pods/Folly/folly/CppAttributes.h
