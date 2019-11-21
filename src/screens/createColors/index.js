@@ -1,6 +1,6 @@
 import { View, Text, Image } from 'react-native';
 import React, {Component, useState} from 'react';
-import ColorChange from "../components/ColorChange";
+import ColorChange from "../../components/ColorChange";
 import styles from "./styles"
 
 const CreateColorsScreen = () => {

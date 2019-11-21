@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
 import React, {Component} from 'react';
 
-import {data} from "../assets/data";
+import {data} from "../../assets/data";
 import { detailsScreen } from '../details/navigation';
 
 

@@ -9,10 +9,14 @@ import { DETAILS_SCREEN } from "./details/navigation";
 import DetailsScreen from "./details";
 import { CREATE_COLORS_SCREEN } from "./createColors/navigation";
 import CreateColorsScreen from "./createColors";
+import { LOGIN_SCREEN } from "./login/navigation";
+import LoginScreen from "./login";
 
 const Screens = new Map();
 
 Screens.set(HOME_SCREEN, HomeScreen)
+Screens.set(LOGIN_SCREEN, LoginScreen)
+
 Screens.set(LIST_SCREEN, ListScreen)
 Screens.set(DETAILS_SCREEN, DetailsScreen)
 Screens.set(CREATE_COLORS_SCREEN, CreateColorsScreen)
