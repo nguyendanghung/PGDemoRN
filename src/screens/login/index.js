@@ -1,10 +1,13 @@
 import { View, Text } from 'react-native';
 import React, {Component} from 'react';
 import { Input, Button, CheckBox } from "react-native-elements"
-import { listScreen } from '../list/navigation';
+import { homeScreen } from '../home/navigation';
 import { DEVICE_INFO, DEVICE_TOKEN } from "../../containers/constant"
 import { postData} from "../../containers/utils/api"
+import { storeData } from "../../containers/utils/helper";
 
+
+const url = "auth/login/"
 
 class LoginScreen extends Component {
 
@@ -14,8 +17,8 @@ state = {
   pass: '',
   remember: false
 }
-  _gotoList = () => {
-    listScreen(this.props.componentId, {screenId: this.props.componentId});
+  _gotoHome = () => {
+    homeScreen(this.props.componentId, {screenId: this.props.componentId});
   }
   
   _remember = () => {
@@ -28,23 +31,37 @@ state = {
     this.setState({value})
   }
 
-  _login = () => {
+  _login = async () => {
+
+
+    const {user, pass} = this.state
 
     let data= {
       device_info: DEVICE_INFO,
       device_token: DEVICE_TOKEN,
-      email: this.state.user,
-      password: this.state.pass,
+      email: user,
+      password: pass,
       remember_me: this.state.remember ? 1 : 0
     }
-    let url = "auth/login/"
+    if(user && pass ) {
 
-    postData( url, data).then((result) => {
+      let result = await postData( url, data)
       if(result.result) {
-        listScreen(this.props.componentId, {screenId: this.props.componentId})
+
+        await storeData('LOGIN_TOKEN', result.result.token)
+        this._gotoHome()
+
+      } else {
+        alert("Invalid data")
       }
       
-    })
+    } else {
+      alert("Data # null")
+    }
+    
+    
+
+   
 
   }
   
@@ -58,12 +75,12 @@ state = {
         <View>
 
           <Input
+            keyboardType="email-address"
             containerStyle={{marginTop: 20}}
-            placeholder="User name"
+            placeholder="Email"
             value={this.state.user}
             onChangeText={(user) => this.setState({user})}
           />
-  <Text>{this.state.user}</Text>
 
           <Input
               containerStyle={{marginVertical: 20}}
@@ -72,7 +89,6 @@ state = {
               value={this.state.pass}
               onChangeText={(pass) => this.setState({pass})}
           />
-  <Text>{this.state.pass}</Text>
 
           <Button
             title={this.state.remember ? "Remember done" : "Remember me"}

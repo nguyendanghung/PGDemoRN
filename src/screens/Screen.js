@@ -1,23 +1,23 @@
-import { HOME_SCREEN } from "./home/navigation";
-import HomeScreen from "./home";
+import { LAUNCH_SCREEN } from "./launch/navigation";
 import { StatusBar, View, SafeAreaView } from 'react-native'
 import { Navigation } from "react-native-navigation"
 import React from 'react'
-import { LIST_SCREEN } from "./list/navigation";
-import ListScreen from "./list";
+import { HOME_SCREEN } from "./home/navigation";
+import HomeScreen from "./home";
 import { DETAILS_SCREEN } from "./details/navigation";
 import DetailsScreen from "./details";
 import { CREATE_COLORS_SCREEN } from "./createColors/navigation";
 import CreateColorsScreen from "./createColors";
 import { LOGIN_SCREEN } from "./login/navigation";
 import LoginScreen from "./login";
+import LaunchScreen from "./launch";
 
 const Screens = new Map();
 
-Screens.set(HOME_SCREEN, HomeScreen)
+Screens.set(LAUNCH_SCREEN, LaunchScreen)
 Screens.set(LOGIN_SCREEN, LoginScreen)
 
-Screens.set(LIST_SCREEN, ListScreen)
+Screens.set(HOME_SCREEN, HomeScreen)
 Screens.set(DETAILS_SCREEN, DetailsScreen)
 Screens.set(CREATE_COLORS_SCREEN, CreateColorsScreen)
 
