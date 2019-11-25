@@ -1,10 +1,15 @@
-const API = "https://ptminder.com/hapi"
+
+// const API = "https://ptminder.com/hapi"
+const API = "http://dev2.pre.ptminder.com/hapi"
+const URL_LOGIN = "auth/login/"
+const URL_GET_LIST_CLIENT = "data/get/clients/"
+const URL_GET_MORE_DATA = "data/get/transactions/"
 
 
-async function postData (url, params) {
+async function postData(url, params) {
     try {
         let res = await fetch(`${API}/${url}`, {
-            method : "POST",
+            method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -13,10 +18,10 @@ async function postData (url, params) {
         })
         let resJson = await res.json();
         return await resJson
-    } 
+    }
     catch (e) {
         console.log(`Error: ${e}`)
     }
 }
 
-export { postData }
+export { postData, URL_GET_LIST_CLIENT, URL_LOGIN, URL_GET_MORE_DATA }

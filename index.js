@@ -18,9 +18,9 @@ Navigation.events().registerAppLaunchedListener(async () => {
     let loginToken = await getStoreData('LOGIN_TOKEN')
     registerScreens()
 
-    if(loginToken){
+    if (loginToken) {
         homeScreen()
-    } else{
+    } else {
         launchScreen()
     }
 })

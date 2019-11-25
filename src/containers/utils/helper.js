@@ -1,4 +1,5 @@
 import AsyncStorage from "@react-native-community/async-storage";
+import { Alert } from "react-native"
 
 
 export const storeData = async (key, value) => {
@@ -12,22 +13,22 @@ export const storeData = async (key, value) => {
 export const getStoreData = async (key) => {
     try {
         return await AsyncStorage.getItem(key)
-        
-    } catch(e) {
+
+    } catch (e) {
         console.log(`Get value storage ${e}`);
-        
+
     }
 }
 
 export const removeStoreData = async (key) => {
     try {
 
-      await AsyncStorage.removeItem(key)
+        await AsyncStorage.removeItem(key)
 
-    } catch(e) {
+    } catch (e) {
         console.log(`Remove value storage ${e}`);
-        
+
     }
-  
+
     console.log('Done.')
-  }
+}

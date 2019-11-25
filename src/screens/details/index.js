@@ -1,22 +1,20 @@
 import { View, Text, Image } from 'react-native';
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 import styles from "./styles"
 
 class DetailsScreen extends Component {
 
     render() {
-        
+
         const { item } = this.props
 
-        return(
+        return (
             <View style={styles.detailWrap}>
-                <Text style={styles.title}>{item.id}.{item.title}</Text>
-                <Image
-                    style={{width: 200, height: 200}}
-                    source={{uri: item.src}}
-                />
-                <Text style={styles.des}>{item.des}</Text>
+                <Text style={styles.title}>{item.id}</Text>
+                <Text style={styles.des}>{item.email}</Text>
+                <Text style={styles.des}>{item.full_name}</Text>
+
             </View>
         )
     }
