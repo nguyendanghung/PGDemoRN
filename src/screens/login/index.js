@@ -4,7 +4,7 @@ import { homeScreen } from '../home/navigation';
 import { DEVICE_INFO, DEVICE_TOKEN } from "../../containers/constant"
 import { postData, URL_LOGIN } from "../../containers/utils/api"
 import { storeData } from "../../containers/utils/helper";
-
+import {stlGlobal} from "../../assets/styles/commom"
 class LoginScreen extends Component {
 
 
@@ -43,8 +43,11 @@ class LoginScreen extends Component {
 
       let result = await postData(URL_LOGIN, data)
       if (result.result) {
+        console.log(result);
+        
 
-        await storeData('LOGIN_TOKEN', result.result.token)
+        storeData('LOGIN_TOKEN', result.result.token);
+        
         this._gotoHome()
 
       } else {
@@ -67,10 +70,11 @@ class LoginScreen extends Component {
             placeholder="Email"
             value={this.state.user}
             onChangeText={(user) => this.setState({ user })}
+            style={stlGlobal.inputDefault}
           />
 
           <TextInput
-            containerStyle={{ marginVertical: 20 }}
+            style={stlGlobal.inputDefault}
             placeholder="Password"
             secureTextEntry={true}
             value={this.state.pass}

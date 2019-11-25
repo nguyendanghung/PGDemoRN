@@ -217,7 +217,7 @@ PODS:
     - React-cxxreact (= 0.61.4)
     - React-jsi (= 0.61.4)
     - ReactCommon/jscallinvoker (= 0.61.4)
-  - ReactNativeNavigation (3.7.0):
+  - ReactNativeNavigation (3.5.0):
     - React
   - RNCAsyncStorage (1.6.3):
     - React
@@ -256,7 +256,7 @@ DEPENDENCIES:
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - boost-for-react-native
 
 EXTERNAL SOURCES:
@@ -341,10 +341,10 @@ SPEC CHECKSUMS:
   React-RCTText: 21934e0a51d522abcd0a275407e80af45d6fd9ec
   React-RCTVibration: 0f76400ee3cec6edb9c125da49fed279340d145a
   ReactCommon: a6a294e7028ed67b926d29551aa9394fd989c24c
-  ReactNativeNavigation: bed6f504aa1a4dadd151503bf99d0ef96d06847f
+  ReactNativeNavigation: e24c3806ac4b8836e15b1938efd91f717f9078ae
   RNCAsyncStorage: 3c304d1adfaea02ec732ac218801cb13897aa8c0
   Yoga: ba3d99dbee6c15ea6bbe3783d1f0cb1ffb79af0f
 
 PODFILE CHECKSUM: 24b0c224cbd3dc96b185d6aeb7d1d79874c518d4
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.4

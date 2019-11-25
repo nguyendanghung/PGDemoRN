@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 import { data } from "../../assets/data";
 import { detailsScreen } from '../details/navigation';
 import { Navigation } from 'react-native-navigation';
-import { removeStoreData, getStoreData } from '../../containers/utils/helper';
+import { removeStoreData, getStoreData, searchByListProp } from '../../containers/utils/helper';
 import { launchScreen } from '../launch/navigation';
 import styles from "./styles"
-import { postData, URL_GET_LIST_CLIENT } from "../../containers/utils/api";
-
+import { postData, URL_GET_LIST_CLIENT, URL_GET_TRANSACTIONS } from "../../containers/utils/api";
+import {stlGlobal} from "../../assets/styles/commom"
 
 class HomeScreen extends Component {
 
@@ -17,32 +17,40 @@ class HomeScreen extends Component {
         this.state = {
             listDataClient: [],
             loadingClient: true,
-            queryText: ''
+            queryText: '',
+            isLoadMore: false
         }
         this.arrSearch = []
     }
 
     componentDidMount() {
-        this._loadData()
+        this._loadData();
     }
 
     _loadData = async () => {
 
         let getLoginToken = await getStoreData('LOGIN_TOKEN');
-
+        console.log(getLoginToken);
+        
         let params = {
             token: getLoginToken
         }
         let result = await postData(URL_GET_LIST_CLIENT, params);
         if (result.result.clients) {
             let getDataClient = result.result.clients;
-            let sliceData = getDataClient.slice(0, 21)
-            this.setState({ listDataClient: sliceData, loadingClient: false })
+            // because data is more i just get 50 data if get all in one time my app lag
+            // let sliceData = getDataClient.slice(0, 50)
+            this.setState({ 
+                listDataClient: getDataClient, loadingClient: false 
+            })
+            this.arrSearch = sliceData
+            
         } else {
             alert("No data from server")
         }
     }
 
+    
 
     _gotoLaunch = () => {
         launchScreen(this.props.componentId, { screenId: this.props.componentId })
@@ -55,40 +63,9 @@ class HomeScreen extends Component {
     //     }
     // }
 
-    _searchClient = (queryText) => {
-        console.log(queryText);
-        let queryResult = [];
-
-        this.state.listDataClient.forEach(function (client) {
-            if (client.full_name.toLowerCase().indexOf(queryText) != -1)
-                queryResult.push(client);
-        });
-        console.log(queryResult);
-
-    }
-
-    search = text => {
-        console.log(text);
-    };
-
-    clear = () => {
-        this.search.clear();
-    };
-
-    SearchFilterFunction(text) {
-        //passing the inserted text in textinput
-        const newData = this.arrSearch.filter(function (item) {
-            //applying filter for the inserted text in search bar
-            console.log(item);
-            const itemData = item.full_name ? item.full_name.toLowerCase() : ''.toLowerCase();
-            const textData = text.toLowerCase();
-            return itemData.indexOf(textData) > -1;
-        });
-
-        this.setState({
-            listDataClient: newData,
-            queryText: text,
-        });
+    _search = (text) =>{
+        let queryResult = searchByListProp(this.arrSearch, ['id', 'first', 'last'], text)
+        this.setState({listDataClient: queryResult, queryText: text})
     }
 
     _logOut = () => {
@@ -120,8 +97,6 @@ class HomeScreen extends Component {
         )
     }
 
-
-
     _gotoDetails = item => {
         detailsScreen(this.props.componentId, { screenId: this.props.componentId, item })
     }
@@ -130,31 +105,32 @@ class HomeScreen extends Component {
     render() {
 
         const { listDataClient, loadingClient, queryText } = this.state
-        this.state.listDataClient.push(data)
 
         return (
             <View style={styles.container}>
                 <Button title="Log out" onPress={this._logOut} />
 
                 <TextInput
+                    style={stlGlobal.inputDefault}
                     placeholder="Search..."
                     value={queryText}
-                    onChangeText={(queryText) => this.SearchFilterFunction(queryText)}
+                    onChangeText={(queryText) => this._search(queryText)}
                 />
-                <Button title="Search" onPress={this._searchClient} />
-
-                {
-                    loadingClient ?
-                        <ActivityIndicator size="large" color="#0000ff" />
-                        :
-                        <FlatList
-                            data={listDataClient}
-                            renderItem={this._renderItem}
-                            keyExtractor={item => item.id}
-                            numColumns={2}
-                            enableEmptySections={true}
-                        />
-                }
+                {/* <Button title="Search" onPress={this._searchClient} /> */}
+                <View style={{height: 400}}>
+                    {
+                        loadingClient ?
+                            <ActivityIndicator size="large" color="#0000ff" />
+                            :
+                            <FlatList
+                                data={listDataClient}
+                                renderItem={this._renderItem}
+                                numColumns={2}
+                                enableEmptySections={true}
+                            />
+                    }
+                </View>
+               
 
 
             </View>

@@ -3,8 +3,7 @@
 const API = "http://dev2.pre.ptminder.com/hapi"
 const URL_LOGIN = "auth/login/"
 const URL_GET_LIST_CLIENT = "data/get/clients/"
-const URL_GET_MORE_DATA = "data/get/transactions/"
-
+const URL_GET_TRANSACTIONS = "data/get/transactions/"
 
 async function postData(url, params) {
     try {
@@ -24,4 +23,4 @@ async function postData(url, params) {
     }
 }
 
-export { postData, URL_GET_LIST_CLIENT, URL_LOGIN, URL_GET_MORE_DATA }
+export { postData, URL_GET_LIST_CLIENT, URL_LOGIN, URL_GET_TRANSACTIONS }

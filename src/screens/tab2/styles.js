@@ -1,22 +1,30 @@
 import { StyleSheet } from "react-native"
 
 
-const styles = StyleSheet.create({
-    detailWrap: {
-        justifyContent: "center",
-        alignContent: "center",
-        alignItems: "center",
-        padding: 15
+export default styles = StyleSheet.create({
+    container: {
+        paddingVertical: 20,
+        paddingHorizontal: 10,
     },
-    title: {
-        fontSize: 22,
-        fontWeight: "bold",
-        paddingVertical: 15
-    },
-    des: {
-        fontSize: 14,
-        paddingTop: 15
-    }
-})
+    eachItem: {
+        height: 150,
+        width: '50%',
+        borderColor: 'grey',
+        borderWidth: 1,
+        padding: 15,
+        marginBottom: 10
 
-export default styles
+    },
+    id: {
+        fontSize: 16,
+        fontWeight: "bold"
+    },
+    email: {
+        fontSize: 14
+    },
+    name: {
+        fontSize: 14,
+        color: "green"
+    }
+
+})

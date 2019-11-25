@@ -32,3 +32,16 @@ export const removeStoreData = async (key) => {
 
     console.log('Done.')
 }
+
+export const searchByListProp = (list, listProps, queryText) =>{
+
+    return list.filter((item) => {
+        if (listProps.find((prop) => {
+            return item[prop] && item[prop].toLowerCase().indexOf(queryText.toLowerCase()) > -1
+        })) {
+            return true
+        }
+
+        return false;
+    })
+}

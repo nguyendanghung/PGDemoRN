@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native"
 export default styles = StyleSheet.create({
     container: {
         paddingVertical: 20,
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
     },
     eachItem: {
         height: 150,

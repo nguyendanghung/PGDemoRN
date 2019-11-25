@@ -15,12 +15,7 @@ import { getStoreData } from "./src/containers/utils/helper"
 import { homeScreen } from "./src/screens/home/navigation"
 
 Navigation.events().registerAppLaunchedListener(async () => {
-    let loginToken = await getStoreData('LOGIN_TOKEN')
     registerScreens()
-
-    if (loginToken) {
-        homeScreen()
-    } else {
-        launchScreen()
-    }
+    let loginToken = await getStoreData('LOGIN_TOKEN')
+    loginToken ? homeScreen() : launchScreen()
 })
