@@ -64,18 +64,6 @@ export default StyleSheet.create({
     textCenter: {
         textAlign: 'center'
     },
-    tagWrap: {
-        padding: 10,
-        borderRadius: 20,
-        backgroundColor: colors.Orange,
-        justifyContent: 'center',
-        alignItems: 'center',
-        minWidth: 50,
-        margin: 2
-    },
-    textTag: {
-        color: 'white',
-        
-    }
+    
 })
 
