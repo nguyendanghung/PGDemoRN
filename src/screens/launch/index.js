@@ -1,42 +1,85 @@
-import { View, Text, Button } from 'react-native';
+import { View, Text,  Picker, TouchableOpacity } from 'react-native';
 import React, { Component } from 'react';
-import { homeScreen } from '../home/navigation';
-import { createColorsScreen } from '../createColors/navigation';
-import { loginScreen } from '../login/navigation';
+import { searchResultScreen } from '../searchResult/navigation';
+import { common } from '../../assets/styles';
+import styles from './styles';
+import SelectOption from '../../components/SelectOption';
+import { Input, Icon, Button } from 'react-native-elements';
 
 
 class LaunchScreen extends Component {
 
-
-
-  _gotoHome = () => {
-    homeScreen(this.props.componentId, { screenId: this.props.componentId });
+  state = {
+    language: ''
   }
 
-  _gotoLogin = () => {
-    loginScreen(this.props.componentId, { screenId: this.props.componentId });
-  }
-
-  _gotoCreateColors = () => {
-    createColorsScreen(this.props.componentId, { screenId: this.props.componentId });
+  _gotoSearchResult = () => {
+    searchResultScreen(this.props.componentId, { screenId: this.props.componentId });
   }
 
   render() {
 
 
     return (
-      <View>
-        <View>
-          <Button
-            title="Login"
-            onPress={this._gotoLogin}
-          />
-
-          <Button
-            title="Goto Colors"
-            onPress={this._gotoCreateColors}
-          />
+      <View style={styles.container}>
+        <Text style={styles.textTop}>Compare the best teacher and choose the most appropriate</Text>
+        <View style={common.mb30}>
+          <Text style={styles.title}>Here is best tutor in</Text>
+          <View style={styles.listTutor}>
+            <View style={styles.itemTutor}>
+              <Text style={styles.Tutor}>Engineering</Text>
+            </View>
+            
+            <View style={styles.itemTutor}>
+              <Text style={styles.Tutor}>Law</Text>
+            </View>
+            <View style={styles.itemTutor}>
+              <Text style={styles.Tutor}>Science</Text>
+            </View>
+            <View style={[styles.itemTutor, common.noBorder]}>
+              <Text style={styles.Tutor}>Engineering</Text>
+            </View>
+            <View style={styles.itemTutor}>
+              <Text style={styles.Tutor}>English</Text>
+            </View>
+            <View style={[styles.itemTutor, common.noBorder]}>
+              <Text style={styles.Tutor}>Business</Text>
+            </View>
+          </View>
         </View>
+
+        <SelectOption placeholder='Select City' />
+        <Input
+          placeholder='Search the course or test name'
+          rightIcon={
+            <Icon
+              type='antdesign'
+              name='close'
+              size={24}
+              color='#676767'
+              onPress={() => console.log('werw e')}
+            />
+          }
+          underlineColorAndroid='transparent'
+          rightIconContainerStyle={{left: -7}}
+          inputStyle={common.inputStyle}
+          inputContainerStyle={common.inputContainerStyle}
+          containerStyle={{paddingHorizontal: 0, marginVertical: 5}}
+        />
+        <View style={[common.flexRowEnd, common.mt10]}>
+          <TouchableOpacity style={styles.btnClear} onPress={() => {}}>
+            <Text style={styles.textBtnClear} >Advanced Search?</Text>
+          </TouchableOpacity>
+        </View>
+        <Button
+          title='Search'
+          titleStyle={{fontWeight: 'bold'}}
+          buttonStyle={[styles.btnAround, styles.btnOrange, styles.btnLarge]}
+          containerStyle={styles.mt50}
+          onPress={this._gotoSearchResult}
+        />
+       
+
       </View>
     )
   }
