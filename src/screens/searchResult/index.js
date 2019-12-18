@@ -5,16 +5,29 @@ import SelectOption from '../../components/SelectOption';
 import { Input, Icon, Button } from 'react-native-elements';
 import { common, colors } from '../../assets/styles';
 import ItemSearchResult from '../../components/ItemSearchResult';
+import { Navigation } from 'react-native-navigation';
 
 
 class SearchResultScreen extends Component {
 
-    navigationButtonPressed = ({ buttonId }) => {
-        const { componentId } = this.props;
-        if (buttonId === 'back') {
-          Navigation.pop(componentId);
+    componentDidMount() {
+        this.navigationEventListener = Navigation.events().bindComponent(this);
+      }
+    
+      componentWillUnmount() {
+        // Not mandatory
+        if (this.navigationEventListener) {
+          this.navigationEventListener.remove();
         }
       }
+
+    navigationButtonPressed = ({ buttonId }) => {
+        console.log(this.props)
+        const { screenId } = this.props;
+        if (buttonId === 'back') {
+          Navigation.popTo(screenId);
+        }
+    }
     render() {
         return(
             <View style={styles.container}>

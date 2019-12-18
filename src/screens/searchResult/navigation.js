@@ -4,13 +4,6 @@ const SEARCH_RESULT_SCREEN = "src.searchResult";
 
 const searchResultScreen = (componentId, passProps) => {
 
-  // Navigation.setDefaultOptions({
-  //   layout: {
-  //     direction: 'rtl', // Supported directions are: 'rtl', 'ltr'
-  //     backgroundColor: 'black',
-  //     orientation: ['portrait', 'landscape'] // An array of supported orientations
-  //   },
-  // });
     Navigation.push(componentId, {
         component: {
             id: SEARCH_RESULT_SCREEN,
@@ -24,7 +17,9 @@ const searchResultScreen = (componentId, passProps) => {
                     {
                       id: 'back',
                       icon: require('../../assets/images/right-arrow.png'),
+                      
                     },
+
                   ],
                   rightButtons: [
                     {
